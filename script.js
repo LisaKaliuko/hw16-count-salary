@@ -3,7 +3,7 @@
 let sumOfAllSalaries = 0;
 let numberOfSalaries = 0;
 let historyOfSalaries = [];
-let introducedSalary;
+let introducedSalary; 
 
 alert('Welcome to app, which hepls to count salaries');
 
