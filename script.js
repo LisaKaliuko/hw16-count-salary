@@ -2,13 +2,21 @@
 
 let sumOfAllSalaries = 0;
 let numberOfSalaries = 0;
-let historyOfSalaries = [];
-let introducedSalary; 
+let historyOfSalaries = '';
 
 alert('Welcome to app, which hepls to count salaries');
 
-nextSalary: while(true) {
-    introducedSalary = +prompt('Enter salary');
+while(true) {
+    let introducedSalary;
+
+    if(numberOfSalaries === 0) {
+        introducedSalary = +prompt(`Enter salary`);
+    } else {
+        introducedSalary = +prompt(`Enter next salary
+    Sum of all salaries: ${sumOfAllSalaries} rub.
+    Average salary: ${sumOfAllSalaries / numberOfSalaries} rub.
+    History: ${historyOfSalaries} rub.`);
+    }
 
     if(introducedSalary === 0 || introducedSalary < 0) {
         break;
@@ -18,15 +26,20 @@ nextSalary: while(true) {
         if(userAnswer === false) {
             break;
         } else {
-            continue nextSalary;
-        }
+            continue;
+        }   
     }
 
     sumOfAllSalaries += introducedSalary;
     numberOfSalaries += 1;
-    historyOfSalaries.push(introducedSalary);
+
+    if(numberOfSalaries === 1) {
+        historyOfSalaries = introducedSalary;
+    } else {
+        historyOfSalaries = historyOfSalaries + ' rub. + ' + introducedSalary;
+    }  
 }
 
 alert(`Sum of all salaries: ${sumOfAllSalaries} rub.
 Average salary: ${sumOfAllSalaries / numberOfSalaries} rub.
-History: ${historyOfSalaries.join(' rub. + ')}  rub.`);
+History: ${historyOfSalaries} rub.`);
